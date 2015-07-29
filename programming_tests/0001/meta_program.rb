@@ -11,12 +11,15 @@
 =end
 
 class MetaProgram
-	attr_accessor :this, :that, :other, :where
 
   def initialize(h)
     @h = h
-    @h.each {|key,value| self.send("#{key}=",value)}
+    @h.each do |key,value|
+      self.class.send(:attr_accessor, key) #to be able to call attr_accessor inside instance
+    	self.send("#{key}=",value)
+    end
   end
+
 end
 # One of the most useful feature I think with .send method is that it can dynamically call on method. This can save you a lot of typing. One of the most popular use of .send method is to assign attributes dynamically. For example:
 

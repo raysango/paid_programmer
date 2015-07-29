@@ -17,9 +17,9 @@ describe "0001 tests" do
 
   context "MetaProgram" do
     it "should create methods each with the required output" do
-      h = {"this" => "that", "that" => "other", "where" => "here"}
+      h = {"hello" => "that", "that" => "other", "where" => "here"}
       m = MetaProgram.new(h)
-      expect(m.this).to eq("that")
+      expect(m.hello).to eq("that")
       expect(m.that).to eq("other")
       expect(m.where).to eq("here")
     end
