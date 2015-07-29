@@ -15,11 +15,7 @@ class Transform2
     f = File.open(the_file, "r")
     f.each_line do |line|
         w = line.chomp
-    	if h.has_key?(w)
     		h[w] += 1
-    	else
-    		h[w] = 1
-    	end
     end
     return h
   end
