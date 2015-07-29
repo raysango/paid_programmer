@@ -11,6 +11,14 @@
 =end
 
 class MetaProgram
+# I like this solution a lot -- because instead of defining methods, or
+# using method_missing, you just set attributes, which is really cool.
+# The only problem is that your solution doesn't quite get there -- I
+# am looking for something where the input can be any hash, not just a hash
+# I supplied. Can you figure out a way to declare attr_accessor on
+# on your hash keys?
+# Also, do you need attr_accessor, or is there a better attr* method to call
+# here?
 	attr_accessor :this, :that, :other, :where
 
   def initialize(h)

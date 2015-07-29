@@ -1,2 +1,3 @@
 require "byebug"
+# don't need this @files instance variable here -- can just say Dir.glob ...
 @files = Dir.glob(File.join(File.dirname(__FILE__), "../programming_tests/0001/*")).map{|f| require(f)}
