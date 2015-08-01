@@ -10,7 +10,7 @@ b = a.flatten
 output = []
 
 
-#Charlie's Solution
+#3rd Solution
 require 'enumerator'
 output = []
 a.flatten.each_slice(3).map do |e|

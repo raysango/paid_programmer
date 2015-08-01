@@ -18,8 +18,9 @@ require 'enumerator'
 			i = 0
 			while i <= d.size - 1 do
 				r = f.split("").insert(d[i],'.')
+				print d
 				i += 1
 			end
-			puts r.join
+
 		end 
-		cap('Larubymeetup.com')
+		cap('Larub.ymeetup.com')
