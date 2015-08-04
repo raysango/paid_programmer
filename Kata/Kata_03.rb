@@ -1,44 +1,41 @@
-=begin
-Please answer in either Ruby, Perl, PHP, Python or Java
-1. Convert this string
-string = "{key:[[value_1, value_2],[value_3, value4]], 5:10:00AM]}"
-to this hash:
-h = {"key" => [["value_1", "value_2"],["value_3", "value4"]], 5=>"10:00AM"}
-then convert h to JSON.
-Please note that the brackets are unbalanced on purpose. 
-=end
-require "JSON"
-def Test(string)
-array = string.split(",")
-time = array.slice!(4).gsub(/[\]]/,'').split("")
-d = []
-i = 0
-while i <= time.size do
-	if time[i] == ":"
-		d << i
-	end
-		i += 1
-end
-i = 0
-time_final = time.reject{|c| c == ":"}.insert(d[i],"=>").insert(d[i+1],":").join.gsub(/[>]/,">\"").gsub(/[}]/,"\"}")
+# write a function called shared_ancestor that finds the youngest shared ancestor
+# class of two objects
 
-array_final = array.join(",").gsub(/[:]/,"\"=>").gsub(/[{]/,"{\"").split(">")
+# So -- 
+# shared_ancestor(1, 1.0)
+# will return 
+# Numeric
 
-output = []
-array_final.slice!(1).scan(/\w+/).each_slice(2).map {|e| output << e}
+# You get an object's class by calling
+# object.class
+# you get a class's parent class, by calling
+# class.superclass
+  	# you can an object's class by saying obj.class
+#1.class == fixnum
+# so you know where to start, right ? obj.class
+# what is the root class in Ruby ?
+#nope -- it's BasicObject
+# so you know where to stop
 
-output_final = []
-output_final << array_final.join(">")
-output_final << output.to_s
-h_1 = output_final.join(">")
-h_2 = []
-h_2 << h_1
-h_2 << time_final
-h = instance_eval(h_2.join(","))
-h_to_json = h.to_json
 
-puts h
-puts h_to_json
+def shared_ancestor(obj1, obj2)
+	a = [obj1.class]
+	b = [obj2.class]
+	i = 0
+	c = a[i].superclass
+  d = b[i].superclass
+  while c != BasicObject && d != BasicObject do 
+
+  	c = a[i].superclass
+  	d = b[i].superclass
+  	a << c
+  	b << d
+  	i += 1
+ 	end	
+output = a & b
+puts output[0]
 end
 
-puts Test("{key:[[value_1, value_2],[value_3, value4]], 5:10:00AM]}")
+shared_ancestor(1, 1.0) 
+
+# puts 1.class.superclass.superclass.superclass.superclass
