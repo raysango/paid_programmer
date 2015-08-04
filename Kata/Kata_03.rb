@@ -22,14 +22,10 @@ def shared_ancestor(obj1, obj2)
 	a = [obj1.class]
 	b = [obj2.class]
 	i = 0
-	c = a[i].superclass
-  d = b[i].superclass
-  while c != BasicObject && d != BasicObject do 
+  while a[i] != BasicObject && b[i] != BasicObject do 
 
-  	c = a[i].superclass
-  	d = b[i].superclass
-  	a << c
-  	b << d
+  	a << a[i].superclass
+  	b << b[i].superclass
   	i += 1
  	end	
 output = a & b
