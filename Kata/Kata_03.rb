@@ -29,7 +29,7 @@ def shared_ancestor(obj1, obj2)
   	i += 1
  	end	
 output = a & b
-puts output[0]
+puts "The shared ancestor of obj1 and obj2 is \"#{output[0]}\", which is obj1's parent, and obj2\'s grandparent"
 end
 
 shared_ancestor(1, 1.0) 
