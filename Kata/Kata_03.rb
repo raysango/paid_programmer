@@ -19,19 +19,17 @@
 
 
 def shared_ancestor(obj1, obj2)
-	a = [obj1.class]
-	b = [obj2.class]
-	i = 0
-  while a[i] != BasicObject && b[i] != BasicObject do 
-
-  	a << a[i].superclass
-  	b << b[i].superclass
-  	i += 1
+	a, b = [obj1.class], [obj2.class]
+  while a.last != BasicObject && b.last != BasicObject do 
+  	a << a.last.superclass
+  	b << b.last.superclass
  	end	
-output = a & b
-puts "The shared ancestor of obj1 and obj2 is #{output[0]}, which is obj1's parent, and obj2's grandparent"
+	output = a & b
+	inputs = [a, b]
+	x = []
+	inputs.each.map{|e| e.index(output.first) == 1 ? x.push("parent") : x.push("grandparent")}
+	puts "The shared ancestor of obj1 and obj2 is #{output.first}, which is obj1's #{x.first}, and obj2's #{x.last}"
 end
-
 shared_ancestor(1, 1.0) 
 
 # puts 1.class.superclass.superclass.superclass.superclass

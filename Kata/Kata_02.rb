@@ -18,9 +18,30 @@ require 'enumerator'
 			i = 0
 			while i <= d.size - 1 do
 				r = f.split("").insert(d[i],'.')
-				print d
+				puts r.join
 				i += 1
 			end
 
 		end 
-		cap('Larub.ymeetup.com')
+		cap('SocialChorus.com')
+
+# another solution
+# take this string as input
+# SocialChorus.com
+# and capitalize every third character, so that your output looks like this:
+#socialchorus.com
+# soCiaLchOruS.coM
+
+
+# def alt_caps(url)
+#   url = url.downcase.split(//)
+#   counter = 1
+#   url.each_with_index do |char,index|
+#     counter -= 1 if char == "."
+#     if counter % 3 == 0 
+#       url[index] = char.upcase
+#     end
+#     counter += 1
+#   end
+#   url.join('')
+# end
