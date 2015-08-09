@@ -2,7 +2,6 @@ def values_permutation(n, t, f)
 	def to_sb
     return 'nil' if [FalseClass, NilClass].include?(self.class) 
   end  
-
 	x, output, y= [], [], []
 	x = [n.to_sb, t, f].permutation(3).to_a
 	x.each do |e| 
@@ -12,5 +11,5 @@ def values_permutation(n, t, f)
 	print y.each_slice(2).each.map{|e| e}
 end
 
-values_permutation(nil, true, false)#not sure if we are allowed to add nill as a string
+values_permutation(nil, true, false)
 
