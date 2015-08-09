@@ -1,3 +1,22 @@
+# return all permutations of these values
+
+# n = nil
+# t = true
+# f = false
+
+# meaning
+
+# n && t && f
+# n || t && f
+# n || t || f
+# n && t || f
+
+# for all variations and orderings of n, t, f, and ||, &&
+
+# your output should look like this:
+
+# [["nil && true && false", nil], ...]
+
 def values_permutation(n, t, f)
 	def to_sb
     return 'nil' if [FalseClass, NilClass].include?(self.class) 
